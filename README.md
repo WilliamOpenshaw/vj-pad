@@ -126,3 +126,7 @@ The two versions are made from one file, `source/VJ Pad.source.html`. After chan
 ## Safety
 
 Fast flashing can make some people sick. Strobe is limited to 3 flashes per second, but please ask the class before using it.
+
+## License
+
+MIT. See [LICENSE](LICENSE). Anyone may use, copy, change and share VJ Pad, also for other classes and schools, as long as the license notice stays with it.
