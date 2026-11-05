@@ -3,3 +3,4 @@ Version History/
 node_modules/
 .DS_Store
 Thumbs.db
+test-output/

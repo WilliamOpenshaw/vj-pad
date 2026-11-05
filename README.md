@@ -9,6 +9,10 @@ There are two versions:
 
 Both versions open the same `.vjkit` files.
 
+[![VJ Pad demo: video and sound pads played from keys and MIDI, with live effects](docs/demo-poster.jpg)](docs/demo.mp4)
+
+**[Watch the 1-minute demo](docs/demo.mp4)** (with sound). It was recorded automatically by `node tools/demo/record-demo.js`.
+
 ## Getting started
 
 1. Copy `VJ Pad.html` to the student's computer (email, shared drive or USB).

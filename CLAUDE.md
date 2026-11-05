@@ -60,6 +60,12 @@ Live VJ program for high school English learners: video, sound and word pads pla
 
 Single evaluated scripts time out at about 45 seconds in the pane, so split long tests.
 
+## Demo video
+
+- `docs/demo.mp4` and `docs/demo-poster.jpg` are shown in the README. Re-record with `node tools/demo/record-demo.js` (add `headed` to watch). It needs ffmpeg (installed on this computer) and writes work files to `test-output/`.
+- `tools/demo/make-media.js` makes the demo clips (videos with ffmpeg, drums as WAV, a beat as MP3). MIDI is faked inside the page as the Launchkey input. `overlay.js` draws the cursor, captions and key badges and records the tab with VJ Pad's own sound.
+- Re-record after visible UI changes. An inline player in the README needs the user to upload the MP4 to GitHub (in an issue comment box) and share the `user-attachments` link.
+
 ## Not tested yet
 
 A real iPad (only Playwright WebKit on Windows with iPad emulation, which does not copy iPadOS media and autoplay rules or memory limits, and has no Web Audio), sound clips in any Apple browser, real MP3 files, Mac, Firefox and desktop Safari, a real second screen, judging audio and the sound-following modulation by ear with real music, and MIDI clock from real hardware. Say so when reporting results that depend on these.
