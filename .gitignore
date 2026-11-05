@@ -1,0 +1,5 @@
+# The teacher's own saved copies; git keeps the history now
+Version History/
+node_modules/
+.DS_Store
+Thumbs.db
