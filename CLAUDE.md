@@ -62,9 +62,9 @@ Single evaluated scripts time out at about 45 seconds in the pane, so split long
 
 ## Demo video
 
-- `docs/demo.mp4` and `docs/demo-poster.jpg` are shown in the README. Re-record with `node tools/demo/record-demo.js` (add `headed` to watch). It needs ffmpeg (installed on this computer) and writes work files to `test-output/`.
+- The README plays the demo from a GitHub `user-attachments` link the user uploaded, with `docs/demo.mp4` as the fallback link. `docs/demo-poster.jpg` is a still for other uses. Re-record with `node tools/demo/record-demo.js` (add `headed` to watch). It needs ffmpeg (installed on this computer) and writes work files to `test-output/`.
 - `tools/demo/make-media.js` makes the demo clips (videos with ffmpeg, drums as WAV, a beat as MP3). MIDI is faked inside the page as the Launchkey input. `overlay.js` draws the cursor, captions and key badges and records the tab with VJ Pad's own sound.
-- Re-record after visible UI changes. An inline player in the README needs the user to upload the MP4 to GitHub (in an issue comment box) and share the `user-attachments` link.
+- Re-record after visible UI changes. The README player then needs a new upload: the user drags the MP4 into a GitHub issue comment box (without submitting) and shares the new `user-attachments` link.
 
 ## Not tested yet
 
