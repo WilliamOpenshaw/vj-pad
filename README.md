@@ -9,7 +9,7 @@ There are two versions:
 
 Both versions open the same `.vjkit` files.
 
-https://github.com/user-attachments/assets/350fb068-55a3-4f4a-a701-2bbefa6dc7d0
+https://github.com/user-attachments/assets/b4ca636f-dcce-40ed-b094-671292ea9aa7
 
 A 1-minute demo, with sound. If the player does not show, [open the video file](docs/demo.mp4). It was recorded automatically by `node tools/demo/record-demo.js`.
 

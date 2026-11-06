@@ -10,7 +10,7 @@
 @keyframes demo-ping { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.5); opacity: 0; } }
 #demo-cap { position: fixed; left: 50%; bottom: 40px; transform: translate(-50%, 16px); opacity: 0; z-index: 2147483645; pointer-events: none;
   background: rgba(13,14,16,.94); color: #fff; border: 2px solid #d9ff3f; border-radius: 16px; padding: 12px 28px; max-width: 80vw;
-  font: 700 26px/1.25 system-ui, "Segoe UI", sans-serif; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.6); transition: opacity .3s, transform .3s; }
+  font: 600 24px/1.25 system-ui, "Segoe UI", sans-serif; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.6); transition: opacity .3s, transform .3s; }
 #demo-cap small { display: block; font-weight: 400; font-size: 18px; color: #c4c9d2; margin-top: 4px; }
 #demo-cap.show { opacity: 1; transform: translate(-50%, 0); }
 #demo-cap.top { bottom: auto; top: 22px; }
@@ -20,12 +20,11 @@
 #demo-key.fade { opacity: 0; transition: opacity .35s, transform .35s; }
 #demo-key small { font-size: 18px; font-weight: 600; color: #c4c9d2; }
 #demo-full { position: fixed; inset: 0; z-index: 2147483644; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none;
-  background: radial-gradient(circle at 50% 38%, #2a3510, #0d0e10 70%); color: #fff; font-family: system-ui, "Segoe UI", sans-serif; text-align: center; opacity: 0; transition: opacity .45s; }
+  background: #0d0e10; color: #fff; font-family: system-ui, "Segoe UI", sans-serif; text-align: center; opacity: 0; transition: opacity .45s; }
 #demo-full.show { opacity: 1; }
-#demo-full h1 { font-size: 84px; margin: 0 0 12px; font-weight: 800; letter-spacing: .02em; }
-#demo-full h1 b { color: #d9ff3f; }
-#demo-full p { font-size: 28px; color: #d4d8de; margin: 6px 0; }
-#demo-full .url { margin-top: 28px; font-size: 26px; color: #44d6ff; font-weight: 700; }
+#demo-full h1 { font-size: 64px; margin: 0 0 16px; font-weight: 700; }
+#demo-full p { font-size: 24px; color: #d4d8de; margin: 6px 0; }
+#demo-full .url { margin-top: 24px; font-size: 24px; color: #44d6ff; font-weight: 600; }
 html.demo-fs #stage { position: fixed; inset: 0; z-index: 50; border: 0; border-radius: 0; width: 100vw; height: 100vh; aspect-ratio: auto; display: flex; align-items: center; justify-content: center; }
 html.demo-fs #stage canvas { width: auto; height: auto; max-width: 100vw; max-height: 100vh; aspect-ratio: 16/9; flex: 1; }
 `;

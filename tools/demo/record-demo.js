@@ -119,19 +119,19 @@ const server = http.createServer((req, res) => {
     console.log('recording as', mime);
 
     // 1. Title
-    await js(() => __demo.full('<h1>VJ<b>PAD</b></h1><p>Play videos and sounds like an instrument</p><p>with a keyboard, a MIDI controller, or an iPad</p>'));
-    await sleep(3000);
+    await js(() => __demo.full('<h1>VJ Pad</h1><p>A browser program that plays video and sound clips</p><p>from computer keys, MIDI notes, or touch</p>'));
+    await sleep(2800);
     await js(() => __demo.unfull());
     await sleep(400);
 
     // 2. Videos
-    await caption('Add your videos<small>Each video becomes a pad with its own key</small>');
+    await caption('Adding video files<small>Each file becomes a pad with a key and a MIDI note</small>');
     await click(await at('#btnAdd'), 650);
     await js(n => VJ.addFiles(n.map(x => __files[x])), VIDEOS);
     await sleep(2000);
 
     // 3. Sounds
-    await caption('Add sounds: MP3, WAV and more<small>Short sounds for hits, or a whole song</small>');
+    await caption('Adding sound files (WAV and MP3)<small>Three short drum sounds and one 32-second song</small>');
     await click(await at('#btnSounds'), 600);
     await js(n => VJ.addFiles(n.map(x => __files[x])), SOUNDS);
     await sleep(1400);
@@ -139,14 +139,14 @@ const server = http.createServer((req, res) => {
     await sleep(900);
 
     // 4. Play with keys
-    await caption('Press a key to play its pad<small>Videos and sounds start the moment you press</small>');
+    await caption('Pressing keys plays the pads');
     await moveTo({ x: pads.x + 120, y: pads.y + 60 }, 500);
     const drum = [['KeyA', 'KeyG'], ['KeyJ'], ['KeyS', 'KeyH'], ['KeyJ'], ['KeyD', 'KeyG'], ['KeyJ'], ['KeyF', 'KeyH'], ['KeyJ']];
     for (let bar = 0; bar < 2; bar++) for (const step of drum) { const t = Date.now(); await keys(step); await sleep(Math.max(0, 250 - (Date.now() - t))); }
     await sleep(300);
 
     // 5. Song
-    await caption('A long sound is a song<small>Press its key once to start it, and again to stop it</small>');
+    await caption('A sound longer than 20 seconds plays until its key is pressed again');
     await sleep(700);
     songStart = Date.now();
     await keys(['KeyK']);
@@ -156,7 +156,7 @@ const server = http.createServer((req, res) => {
 
     // 6. Velocity with MIDI
     grooving = false; await g1;
-    await caption('Hit a MIDI key harder for a brighter video and a louder sound<small>The MIDI monitor shows every note</small>');
+    await caption('MIDI: harder notes are brighter and louder<small>The MIDI monitor lists each note. (MIDI input is simulated here.)</small>');
     await js(() => __demo.reveal('#midiMon', 'end'));
     for (let i = 0; i < 6; i++) {
       const hard = i % 2 === 1, wait = songStart + Math.ceil((Date.now() - songStart) / BEAT) * BEAT - Date.now();
@@ -168,7 +168,7 @@ const server = http.createServer((req, res) => {
     }
 
     // 7. Live effects
-    await caption('Live effects change the whole show');
+    await caption('Live effects apply to the whole picture<small>Here: Kaleido and RGB split</small>');
     const g2 = groove([['KeyA'], ['KeyJ'], ['KeyS'], null, ['KeyD'], ['KeyJ'], ['KeyF'], null]);
     await sleep(400);
     await sliderTo('g_kaleido', 0, 0.75);
@@ -179,7 +179,7 @@ const server = http.createServer((req, res) => {
     await sliderTo('g_rgb', 0.6, 0);
 
     // 8. Modulation
-    await caption('Modulation moves effects for you<small>With waves on the beat, your hits, or the music</small>');
+    await caption('Modulation: an effect can follow a wave, the hits, or the sound level');
     await js(() => __demo.reveal('#mods', 'center'));
     await sleep(500);
     await click(await at('#mods button', '+ Add modulation'), 600);
@@ -189,11 +189,11 @@ const server = http.createServer((req, res) => {
     await sleep(1500);
     await toTop();
     await moveTo({ x: 640, y: 300 }, 700);
-    await sleep(3200);
+    await sleep(2200);
 
     // 9. One clip
     grooving = false; await g2;
-    await caption('Change each clip: effects, speed, trim and more');
+    await caption('Each clip has its own settings<small>Effects, speed, trim, loop and more. "Surprise me" picks random effects.</small>');
     const g3 = groove([['KeyS'], null, ['KeyS'], null, ['KeyS'], ['KeyJ'], ['KeyS'], null]);
     await click(await at('.pad', 'Plasma'), 600);
     await sleep(300);
@@ -206,33 +206,32 @@ const server = http.createServer((req, res) => {
     grooving = false; await g3;
 
     // 10. Words
-    await caption('Put words on the screen');
+    await caption('Word pads show typed text');
     await click(await at('#btnWords'), 600);
     await sleep(300);
-    for (const ch of "Let's dance!") { await send('Input.insertText', { text: ch }); await sleep(45); }
+    for (const ch of 'Hello') { await send('Input.insertText', { text: ch }); await sleep(45); }
     await sleep(300);
     await evaluate('document.activeElement.blur()');
     const g4 = groove([['KeyA', 'KeyL'], null, ['KeyS'], null, ['KeyA'], ['KeyJ'], ['KeyF'], null]);
     await moveTo({ x: pads.x, y: pads.y + 80 }, 600);
-    await sleep(3000);
+    await sleep(2400);
 
     // 11. Full screen
-    await caption('Full screen for the projector', 'top');
+    await caption('Full screen, for a projector', 'top');
     await js(() => __demo.fullscreen(true));
     marks.full = stamp();
     await moveTo({ x: W - 40, y: H - 40 }, 300);
     await sleep(2500);
     await hide();
-    await js(() => { VJ.state.g.kaleido = 0.3; });
     grooving = false; await g4;
     const g5 = groove([['KeyA', 'KeyL'], ['KeyJ'], ['KeyS'], ['KeyJ'], ['KeyA', 'KeyH'], ['KeyJ'], ['KeyF'], ['KeyJ']]);
-    await sleep(3500);
+    await sleep(2500);
     grooving = false; await g5;
 
     // 12. Ending
-    await js(() => __demo.full('<h1>VJ<b>PAD</b></h1><p>Free · No install · Works offline</p><p>Computer: Chrome or Edge, with MIDI · iPad: tap the pads</p><p class="url">github.com/WilliamOpenshaw/vj-pad</p>'));
+    await js(() => __demo.full('<h1>VJ Pad</h1><p>Computer version: one HTML file for Chrome or Edge. Works offline. MIDI input.</p><p>iPad version: a website. Touch only, no MIDI.</p><p>MIT license</p><p class="url">github.com/WilliamOpenshaw/vj-pad</p>'));
     await js(() => releaseClip(VJ.state.clips.find(c => c.name === 'Beat song')));
-    await sleep(4200);
+    await sleep(4500);
     await js(() => __demo.fullscreen(false));
 
     const size = await evaluate(`__demo.stopRec('/out/demo-raw.mp4')`);
